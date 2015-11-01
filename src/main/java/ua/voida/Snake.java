@@ -1,11 +1,11 @@
 package ua.voida;
 
 public class  Snake {
-    public int direction = 3;
+    public int direction;
     public int lenght = 2;
 
-    public int snakeX[] = new int[100];
-    public int snakeY[] = new int[100];
+    public int snakeX[] = new int[SnakeGame.HEIGHT * SnakeGame.WIDTH];
+    public int snakeY[] = new int[SnakeGame.HEIGHT * SnakeGame.WIDTH];
     public Snake(int x0, int y0, int x1, int y1) {
         snakeX[0] = x0;
         snakeY[0] = y0;
@@ -31,5 +31,27 @@ public class  Snake {
                 snakeY[0]--;
             }
         }
+        for (int item = lenght - 1; item > 0 ; item--) {
+            if ( snakeX[0] == snakeX[item] && snakeY[0] == snakeY[item]) {
+                lenght /= 2;
+            }
+            if ( lenght < 2 ) {
+                lenght = 2;
+            }
+            if (snakeX[0] > SnakeGame.WIDTH - 1) {
+                snakeX[0] = 0;
+            }
+            if (snakeX[0] < 0) {
+                snakeX[0] = SnakeGame.WIDTH - 1;
+            }
+            if (snakeY[0] > SnakeGame.HEIGHT - 1) {
+                snakeY[0] = 0;
+            }
+            if (snakeY[0] < 0) {
+                snakeY[0] = SnakeGame.HEIGHT;
+            }
+
+        }
+
     }
 }
