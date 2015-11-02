@@ -8,7 +8,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class  SnakeGame extends JPanel implements ActionListener {
-    public static final int SCALE = 32;
+    public static final int SCALE = 30;
     public static final int WIDTH = 20;
     public static final int HEIGHT = 20;
     public static final int SPEED = 5;
@@ -21,26 +21,26 @@ public class  SnakeGame extends JPanel implements ActionListener {
         addKeyListener(new Keyboard());
         setFocusable(true);
     }
+    public static void GameOver() {
+
+    }
     public void paint (Graphics graphics) {
-        graphics.setColor(color(0, 0, 0));
+        graphics.setColor( new Color(0, 0, 0));
         graphics.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
-        graphics.setColor(color(0, 255, 0));
+        graphics.setColor(new Color(0, 255, 0));
         for (int xx = 0; xx <= WIDTH * SCALE ; xx += SCALE) {
             graphics.drawLine(xx, 0, xx, HEIGHT * SCALE);
         }
         for (int yy = 0; yy < HEIGHT * SCALE ; yy += SCALE) {
             graphics.drawLine(0, yy, HEIGHT * SCALE, yy);
         }
-        graphics.setColor(color(255, 255, 255));
+        graphics.setColor(new Color(255, 255, 255));
         for (int item  = 0; item  < s.lenght; item ++) {
             graphics.fillRect(s.snakeX[item] * SCALE + 1, s.snakeY[item] * SCALE + 1, SCALE - 1, SCALE - 1);
         }
-        graphics.setColor(color(204, 0 , 204));
+        graphics.setColor(new Color(204, 0 , 204));
         graphics.fillRect(apple.posX * SCALE + 1, apple.posY * SCALE + 1, SCALE - 1, SCALE - 1);
 
-    }
-    public Color color (int red, int green, int blue) {
-        return new Color(red, green, blue);
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame();

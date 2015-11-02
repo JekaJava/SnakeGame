@@ -34,10 +34,12 @@ public class  Snake {
         for (int item = lenght - 1; item > 0 ; item--) {
             if ( snakeX[0] == snakeX[item] && snakeY[0] == snakeY[item]) {
                 lenght /= 2;
+
             }
             if ( lenght < 2 ) {
                 lenght = 2;
             }
+
             if (snakeX[0] > SnakeGame.WIDTH - 1) {
                 snakeX[0] = 0;
             }
@@ -48,7 +50,7 @@ public class  Snake {
                 snakeY[0] = 0;
             }
             if (snakeY[0] < 0) {
-                snakeY[0] = SnakeGame.HEIGHT;
+                snakeY[0] = SnakeGame.HEIGHT - 1;
             }
 
         }
